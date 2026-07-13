@@ -6,6 +6,8 @@ import com.booknest.service.LibraryService;
 import java.util.*;
 
 public class App {
+    private static final com.booknest.repository.BookRepository bookRepo = new com.booknest.repository.BookRepository();
+    private static final com.booknest.repository.LoanRepository loanRepo = new com.booknest.repository.LoanRepository();
     private static final LibraryService service = new LibraryService();
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -21,6 +23,9 @@ public class App {
                 System.out.println("6. Hiển thị danh sách thành viên");
                 System.out.println("7. Lập phiếu cho mượn sách");
                 System.out.println("8. Nhận trả sách");
+                System.out.println("9. Tìm kiếm sách nâng cao (Phân trang & Criteria)");
+                System.out.println("10. Thống kê báo cáo (Top sách mượn & Trạng thái phiếu)");
+                System.out.println("11. Xem chi tiết phiếu mượn (Tối ưu Fetch Join)");
                 System.out.println("0. Thoát chương trình");
                 System.out.print("Chọn chức năng (0-8): ");
 
