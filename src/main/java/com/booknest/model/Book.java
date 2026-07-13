@@ -8,6 +8,16 @@ import java.util.Set;
 
 @Entity
 @Table(name = "books")
+@NamedQueries({
+        @NamedQuery(
+                name = "Book.findByIsbn",
+                query = "SELECT b FROM Book b WHERE b.isbn = :isbn"
+        ),
+        @NamedQuery(
+                name = "Book.findByCategory",
+                query = "SELECT b FROM Book b WHERE b.category.id = :categoryId"
+        )
+})
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

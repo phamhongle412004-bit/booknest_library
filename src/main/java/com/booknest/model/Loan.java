@@ -9,6 +9,16 @@ import java.util.List;
 
 @Entity
 @Table(name = "loans")
+@NamedQueries({
+        @NamedQuery(
+                name = "Loan.findOverdue",
+                query = "SELECT l FROM Loan l WHERE l.status = com.booknest.model.enums.LoanStatus.ACTIVE AND l.dueDate < :currentDate"
+        ),
+        @NamedQuery(
+                name = "Loan.countByStatus",
+                query = "SELECT l.status, COUNT(l) FROM Loan l GROUP BY l.status"
+        )
+})
 public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
