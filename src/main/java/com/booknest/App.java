@@ -28,8 +28,9 @@ public class App {
                 System.out.println("10. Thống kê báo cáo (Top sách mượn & Trạng thái phiếu)");
                 System.out.println("11. Xem chi tiết phiếu mượn (Tối ưu Fetch Join)");
                 System.out.println("12. Demo Bộ nhớ đệm cấp 1 (First-level cache)");
+                System.out.println("13. Tự động gieo dữ liệu mẫu (Seed Data)");
                 System.out.println("0. Thoát chương trình");
-                System.out.print("Chọn chức năng (0-11): ");
+                System.out.print("Chọn chức năng (0-13): ");
 
                 int choice = Integer.parseInt(scanner.nextLine());
                 switch (choice) {
@@ -45,6 +46,7 @@ public class App {
                     case 10 -> menuReports();
                     case 11 -> menuLoanDetail();
                     case 12 -> demoFirstLevelCache();
+                    case 13 -> com.booknest.util.DatabaseSeeder.seedData();
                     case 0 -> {
                         System.out.println("Tạm biệt!");
                         JPAConfig.shutdown();
